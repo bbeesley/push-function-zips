@@ -152,7 +152,7 @@
     "@semantic-release/npm": "^9.0.1",
     "@semantic-release/release-notes-generator": "^10.0.3",
     "@types/js-yaml": "^4.0.5",
-    "@types/jsdom": "^16.2.14",
+    "@types/jsdom": "^20.0.1",
     "@types/sinon": "^10.0.11",
     "@types/yargs": "^17.0.8",
     "ava": "^4.0.1",
