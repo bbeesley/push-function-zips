@@ -185,7 +185,7 @@
             },
             {
               "type": "chore",
-              "scope": "deps*",
+              "scope": "deps",
               "release": "patch"
             }
           ]
