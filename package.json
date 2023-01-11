@@ -32,7 +32,7 @@
     "compile:esm": "tsc -p tsconfig.json",
     "compile:cjs": "babel src --out-dir dist/cjs --extensions '.ts,.cjs,.mjs' --ignore '**/*.test.ts' --source-maps --out-file-extension '.cjs'",
     "compile": "run-p compile:*",
-    "documentation": "npx documentation readme src/package-and-upload.ts --github  --require-extension=ts --parse-extension=ts --section=api --shallow",
+    "documentation": "npx documentation readme src/package-and-upload.ts src/@types/options.ts --github  --require-extension=ts --parse-extension=ts --section=api --shallow",
     "prerelease": "run-p compile documentation",
     "release": "npx semantic-release"
   },
