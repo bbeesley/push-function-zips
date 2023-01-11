@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/bbeesley/push-function-zips/compare/v1.0.23...v2.0.0) (2023-01-11)
+
+
+### Features
+
+* adds support for uploading function zips to google cloud storage ([e9dbc50](https://github.com/bbeesley/push-function-zips/commit/e9dbc5032196c6974b5ab0ba3322d3cd2f5bea55))
+
+
+### BREAKING CHANGES
+
+* Option names made generic by removing s3 references
+
 ## [1.0.23](https://github.com/bbeesley/push-function-zips/compare/v1.0.22...v1.0.23) (2023-01-10)
 
 ## [1.0.22](https://github.com/bbeesley/push-function-zips/compare/v1.0.21...v1.0.22) (2023-01-09)
