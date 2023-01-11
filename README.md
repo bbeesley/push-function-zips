@@ -8,21 +8,22 @@ Zips up and uploads build artifacts for serverless functions
 
 Typically this module would be used from the command line. The command line args are described here.
 
-| Argument        | Description                                                                                                                                       | Type      | Required?  |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ---------- |
-| --help          | Show help                                                                                                                                         | \[boolean] |            |
-| --version       | Show version number                                                                                                                               | \[boolean] |            |
-| --inputPath     | The path to the lambda code and node\_modules                                                                                                      | \[string]  | \[required] |
-| --include       | An array of globs defining what to bundle                                                                                                         | \[array]   | \[required] |
-| --exclude       | An array of globs defining what not to bundle                                                                                                     | \[array]   |            |
-| --rootDir       | An optional path within the zip to save the files to                                                                                              | \[string]  |            |
-| --regions       | A list of regions to upload the assets in                                                                                                         | \[array]   | \[required] |
-| --s3Buckets     | A list of buckets to upload to (same order as the regions please)                                                                                 | \[array]   | \[required] |
-| --s3FunctionKey | The path/filename of the zip file in the bucket (you don't need to add the .zip extension, but remember to include a version string of some sort) | \[string]  | \[required] |
-| --s3LayerKey    | Tells the module to split out the node modules into a zip that you can create a lambda layer from                                                 | \[string]  |            |
+| Argument      | Description                                                                                                                                       | Type       | Required?   |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ----------- |
+| --help        | Show help                                                                                                                                         | \[boolean] |             |
+| --version     | Show version number                                                                                                                               | \[boolean] |             |
+| --inputPath   | The path to the lambda code and node\_modules                                                                                                     | \[string]  | \[required] |
+| --include     | An array of globs defining what to bundle                                                                                                         | \[array]   | \[required] |
+| --exclude     | An array of globs defining what not to bundle                                                                                                     | \[array]   |             |
+| --rootDir     | An optional path within the zip to save the files to                                                                                              | \[string]  |             |
+| --regions     | A list of regions to upload the assets in                                                                                                         | \[array]   | \[required] |
+| --buckets     | A list of buckets to upload to (same order as the regions please)                                                                                 | \[array]   | \[required] |
+| --functionKey | The path/filename of the zip file in the bucket (you don't need to add the .zip extension, but remember to include a version string of some sort) | \[string]  | \[required] |
+| --layerKey    | Tells the module to split out the node modules into a zip that you can create a lambda layer from                                                 | \[string]  |             |
+| --platform    | Which cloud provider we are uploading to (AWS or GCP)                                                                                             | \[string]  |             |
 
 ```shell
-npx @beesley/push-function-zips --inputPath './' --include 'dist/**' --regions 'eu-central-1' --s3Buckets 'my-lambda-artefacts' --s3FunctionKey 'hello-function' --s3LayerKey 'hello-function-dependencies'
+npx @beesley/push-function-zips --inputPath './' --include 'dist/**' --regions 'eu-central-1' --buckets 'my-lambda-artefacts' --functionKey 'hello-function' --layerKey 'hello-function-dependencies' --platform 'AWS'
 ```
 
 ### programmatic
@@ -37,9 +38,9 @@ await packageAndUpload({
   include: ['dist/**'],
   createLayer: true,
   region: 'eu-central-1',
-  s3Bucket: 'my-lambda-artefacts',
-  s3FunctionKey: 'hello-function',
-  s3LayerKey: 'hello-function-dependencies',
+  bucket: 'my-lambda-artefacts',
+  functionKey: 'hello-function',
+  layerKey: 'hello-function-dependencies',
 });
 ```
 
@@ -49,19 +50,25 @@ await packageAndUpload({
 
 #### Table of Contents
 
-*   [Options](#options)
-    *   [Properties](#properties)
-    *   [inputPath](#inputpath)
-    *   [include](#include)
-    *   [exclude](#exclude)
-    *   [createLayer](#createlayer)
-    *   [rootDir](#rootdir)
-    *   [region](#region)
-    *   [s3Bucket](#s3bucket)
-    *   [s3FunctionKey](#s3functionkey)
-    *   [s3LayerKey](#s3layerkey)
-*   [packageAndUpload](#packageandupload)
-    *   [Parameters](#parameters)
+- [@beesley/push-function-zips](#beesleypush-function-zips)
+  - [usage](#usage)
+    - [cli](#cli)
+    - [programmatic](#programmatic)
+  - [API](#api)
+      - [Table of Contents](#table-of-contents)
+    - [Options](#options)
+      - [Properties](#properties)
+      - [inputPath](#inputpath)
+      - [include](#include)
+      - [exclude](#exclude)
+      - [createLayer](#createlayer)
+      - [rootDir](#rootdir)
+      - [region](#region)
+      - [bucket](#bucket)
+      - [functionKey](#functionkey)
+      - [layerKey](#layerkey)
+    - [packageAndUpload](#packageandupload)
+      - [Parameters](#parameters)
 
 ### Options
 
@@ -69,7 +76,7 @@ await packageAndUpload({
 
 Options to define an upload task
 
-Type: {inputPath: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), include: [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>?, exclude: [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>?, createLayer: [boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)?, rootDir: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?, region: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), s3Bucket: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), s3FunctionKey: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), s3LayerKey: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?}
+Type: {inputPath: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), include: [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>?, exclude: [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>?, createLayer: [boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)?, rootDir: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?, region: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), bucket: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), functionKey: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), layerKey: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?}
 
 #### Properties
 
@@ -79,9 +86,9 @@ Type: {inputPath: [string](https://developer.mozilla.org/docs/Web/JavaScript/Ref
 *   `createLayer` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)?**&#x20;
 *   `rootDir` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?**&#x20;
 *   `region` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**&#x20;
-*   `s3Bucket` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**&#x20;
-*   `s3FunctionKey` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**&#x20;
-*   `s3LayerKey` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?**&#x20;
+*   `bucket` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**&#x20;
+*   `functionKey` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**&#x20;
+*   `layerKey` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?**&#x20;
 
 #### inputPath
 
@@ -131,7 +138,7 @@ The AWS region to upload the assets to
 
 Type: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)
 
-#### s3Bucket
+#### bucket
 
 [src/package-and-upload.ts:57-57](https://github.com/bbeesley/push-function-zips/blob/a6899e3aa4d52e74263aae2787d4163e63b8c238/src/package-and-upload.ts#L57-L57 "Source code on GitHub")
 
@@ -139,7 +146,7 @@ The name of the S3 bucket to upload to
 
 Type: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)
 
-#### s3FunctionKey
+#### functionKey
 
 [src/package-and-upload.ts:63-63](https://github.com/bbeesley/push-function-zips/blob/a6899e3aa4d52e74263aae2787d4163e63b8c238/src/package-and-upload.ts#L63-L63 "Source code on GitHub")
 
@@ -147,7 +154,7 @@ The key name to upload the function zip as
 
 Type: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)
 
-#### s3LayerKey
+#### layerKey
 
 [src/package-and-upload.ts:69-69](https://github.com/bbeesley/push-function-zips/blob/a6899e3aa4d52e74263aae2787d4163e63b8c238/src/package-and-upload.ts#L69-L69 "Source code on GitHub")
 

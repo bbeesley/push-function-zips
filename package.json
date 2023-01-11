@@ -144,7 +144,6 @@
     "@beesley/tsconfig": "^1.1.0",
     "@commitlint/cli": "^17.3.0",
     "@commitlint/config-conventional": "^17.3.0",
-    "@jorgeferrero/stream-to-buffer": "^2.0.6",
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/commit-analyzer": "^9.0.2",
     "@semantic-release/git": "^10.0.1",
@@ -215,6 +214,8 @@
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.216.0",
+    "@google-cloud/storage": "^6.9.0",
+    "@jorgeferrero/stream-to-buffer": "^2.0.6",
     "better-logging": "^5.0.0",
     "globby": "^13.1.2",
     "jszip": "^3.10.1"

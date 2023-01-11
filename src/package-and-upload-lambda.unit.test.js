@@ -4,7 +4,7 @@ import { mockClient } from 'aws-sdk-client-mock';
 import { streamToBuffer } from '@jorgeferrero/stream-to-buffer';
 import JSZip from 'jszip';
 
-import { packageAndUpload } from '../dist/esm/package-and-upload.js';
+import { packageAndUpload, Platform } from '../dist/esm/package-and-upload.js';
 
 const mockS3 = mockClient(S3Client);
 
@@ -17,13 +17,14 @@ test.serial(
   'uploads a single asset to s3 when layers not enabled',
   async (t) => {
     await packageAndUpload({
+      platform: Platform.AWS,
       inputPath: './',
       include: ['src/**'],
       exclude: ['node_modules/**'],
       createLayer: false,
       region: 'eu-central-1',
-      s3Bucket: 'test-bucket',
-      s3FunctionKey: 'fn',
+      bucket: 'test-bucket',
+      functionKey: 'fn',
     });
     const calls = mockS3.calls();
     t.true(calls.length === 1);
@@ -34,13 +35,14 @@ test.serial(
 );
 test.serial('uploads 2 assets to s3 when layers are enabled', async (t) => {
   await packageAndUpload({
+    platform: Platform.AWS,
     inputPath: './',
     exclude: ['**/typescript/**'],
     createLayer: true,
     region: 'eu-central-1',
-    s3Bucket: 'test-bucket',
-    s3FunctionKey: 'fn',
-    s3LayerKey: 'layer',
+    bucket: 'test-bucket',
+    functionKey: 'fn',
+    layerKey: 'layer',
   });
   const calls = mockS3.calls();
   t.true(calls.length === 2);
@@ -54,13 +56,14 @@ test.serial('uploads 2 assets to s3 when layers are enabled', async (t) => {
 });
 test.serial('wraps the layer node_modules in a nodejs directory', async (t) => {
   await packageAndUpload({
+    platform: Platform.AWS,
     inputPath: './',
     exclude: ['**/typescript/**'],
     createLayer: true,
     region: 'eu-central-1',
-    s3Bucket: 'test-bucket',
-    s3FunctionKey: 'fn',
-    s3LayerKey: 'layer',
+    bucket: 'test-bucket',
+    functionKey: 'fn',
+    layerKey: 'layer',
   });
   const calls = mockS3.calls();
   t.true(calls.length === 2);
@@ -76,13 +79,14 @@ test.serial('wraps the layer node_modules in a nodejs directory', async (t) => {
 
 test.serial('respects include globs', async (t) => {
   await packageAndUpload({
+    platform: Platform.AWS,
     inputPath: './',
     include: ['*.json'],
     exclude: ['node_modules/**'],
     createLayer: false,
     region: 'eu-central-1',
-    s3Bucket: 'test-bucket',
-    s3FunctionKey: 'fn',
+    bucket: 'test-bucket',
+    functionKey: 'fn',
   });
   const calls = mockS3.calls();
   const call = calls.pop();
@@ -95,12 +99,13 @@ test.serial('respects include globs', async (t) => {
 });
 test.serial('respects exclude globs', async (t) => {
   await packageAndUpload({
+    platform: Platform.AWS,
     inputPath: './',
     exclude: ['node_modules/**', '*.json'],
     createLayer: false,
     region: 'eu-central-1',
-    s3Bucket: 'test-bucket',
-    s3FunctionKey: 'fn',
+    bucket: 'test-bucket',
+    functionKey: 'fn',
   });
   const calls = mockS3.calls();
   const call = calls.pop();

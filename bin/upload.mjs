@@ -33,23 +33,29 @@ const argv = yargs(hideBin(process.argv))
     describe: 'A list of regions to upload the assets in',
     demandOption: true,
   })
-  .option('s3Buckets', {
+  .option('buckets', {
     array: true,
     string: true,
     describe:
       'A list of buckets to upload to (same order as the regions please)',
     demandOption: true,
   })
-  .option('s3FunctionKey', {
+  .option('functionKey', {
     string: true,
     describe:
       "The path/filename of the zip file in the bucket (you don't need to add the .zip extension, but remember to include a version string of some sort)",
     demandOption: true,
   })
-  .option('s3LayerKey', {
+  .option('layerKey', {
     string: true,
     describe:
       'Tells the module to split out the node modules into a zip that you can create a lambda layer from',
+  })
+  .option('platform', {
+    string: true,
+    choices: ['AWS', 'GCP'],
+    default: 'AWS',
+    describe: 'Which platform are we uploading assets for',
   })
   .parse();
 try {
@@ -63,7 +69,7 @@ try {
       ...argv,
       region,
       inputPath,
-      s3Bucket: argv.s3Buckets[ix],
+      bucket: argv.buckets[ix],
     });
     ix += 1;
   }
