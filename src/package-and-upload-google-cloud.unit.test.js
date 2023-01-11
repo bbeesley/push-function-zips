@@ -1,6 +1,6 @@
 import test from 'ava';
 import sinon from 'sinon';
-
+import JSZip from 'jszip';
 import { Storage } from '@google-cloud/storage';
 import { packageAndUpload, Platform } from '../dist/esm/package-and-upload.js';
 
@@ -49,9 +49,12 @@ test.serial('uploads a single asset to cloud storage', async (t) => {
   const bucketArg = bucketMethodCall.args[0];
   const fileArg = fileMethodCall.args[0];
   const saveArg = saveMethodCall.args[0];
+  const zip = new JSZip();
+  const result = await zip.loadAsync(saveArg);
+  const zipContent = Object.keys(result.files);
   t.snapshot({
     bucketArg,
     fileArg,
-    saveArg,
+    zipContent,
   });
 });
