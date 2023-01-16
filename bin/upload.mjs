@@ -74,6 +74,6 @@ try {
     ix += 1;
   }
 } catch (error) {
-  console.error('fatal error', error.message);
+  console.error('fatal error', error.message, error.stack);
   process.exit(1);
 }
