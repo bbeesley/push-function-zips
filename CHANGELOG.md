@@ -1,3 +1,11 @@
+## [2.0.3](https://github.com/bbeesley/push-function-zips/compare/v2.0.2...v2.0.3) (2023-01-16)
+
+
+### Bug Fixes
+
+* fix incorrect var name ([d7caa53](https://github.com/bbeesley/push-function-zips/commit/d7caa535aa9373a2e6c335fd7fba443e4e000f1f))
+* log meaningful errors with stack traces ([9c4932b](https://github.com/bbeesley/push-function-zips/commit/9c4932b6bb7a6776e88d4dabe1d8e8fb70ab3ed1))
+
 ## [2.0.2](https://github.com/bbeesley/push-function-zips/compare/v2.0.1...v2.0.2) (2023-01-16)
 
 
