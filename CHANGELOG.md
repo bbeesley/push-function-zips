@@ -1,3 +1,11 @@
+## [2.0.2](https://github.com/bbeesley/push-function-zips/compare/v2.0.1...v2.0.2) (2023-01-16)
+
+
+### Bug Fixes
+
+* add missing dependency ([1d73f12](https://github.com/bbeesley/push-function-zips/commit/1d73f12d0c5ed8b05aacbb1b937e2952aee203df))
+* exit 1 on fail ([414235e](https://github.com/bbeesley/push-function-zips/commit/414235ec78611865bd4518d92e70be99f9b8a6ab))
+
 ## [2.0.1](https://github.com/bbeesley/push-function-zips/compare/v2.0.0...v2.0.1) (2023-01-11)
 
 # [2.0.0](https://github.com/bbeesley/push-function-zips/compare/v1.0.23...v2.0.0) (2023-01-11)
