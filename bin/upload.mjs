@@ -62,7 +62,7 @@ try {
   let ix = 0;
   const cwd = process.cwd();
   const inputPath = resolve(cwd, argv.inputPath);
-  if (argv.s3Buckets.length !== argv.regions.length)
+  if (argv.buckets.length !== argv.regions.length)
     throw new Error('must specify a bucket for each region');
   for (const region of argv.regions) {
     await packageAndUpload({
