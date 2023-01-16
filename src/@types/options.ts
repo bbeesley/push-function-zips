@@ -1,6 +1,6 @@
 export enum Platform {
-  'AWS',
-  'GCP',
+  'AWS' = 'AWS',
+  'GCP' = 'GCP',
 }
 
 /**
