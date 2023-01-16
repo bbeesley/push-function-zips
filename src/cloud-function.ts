@@ -1,9 +1,8 @@
 import type { Options } from './@types/index.js';
+import { debug } from './constants.js';
 import { createZipStream } from './create-zip.js';
 import { storageUpload } from './storage/cloud-storage.js';
 import { getFileList } from './util.js';
-
-const debug = process.env.DEBUG;
 
 /**
  * Creates a zip file containing function code and uploads to Google Cloud Storage

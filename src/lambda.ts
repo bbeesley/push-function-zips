@@ -6,8 +6,7 @@ import type {
 import { s3Upload } from './storage/s3.js';
 import { createZip, createZipStream } from './create-zip.js';
 import { getFileList } from './util.js';
-
-const debug = process.env.DEBUG;
+import { debug } from './constants.js';
 
 /**
  * Checks if an options object is for a fn plus layer job
