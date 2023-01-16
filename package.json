@@ -218,7 +218,8 @@
     "@jorgeferrero/stream-to-buffer": "^2.0.6",
     "better-logging": "^5.0.0",
     "globby": "^13.1.2",
-    "jszip": "^3.10.1"
+    "jszip": "^3.10.1",
+    "yargs": "^17.6.2"
   },
   "ava": {
     "files": [
