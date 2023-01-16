@@ -65,6 +65,9 @@ try {
   if (argv.buckets.length !== argv.regions.length)
     throw new Error('must specify a bucket for each region');
   for (const region of argv.regions) {
+    console.info(
+      `packaging ${argv.functionKey} for ${argv.buckets[ix]} in ${region} on ${argv.platform}`,
+    );
     await packageAndUpload({
       ...argv,
       region,
