@@ -1,3 +1,10 @@
+## [2.0.6](https://github.com/bbeesley/push-function-zips/compare/v2.0.5...v2.0.6) (2023-01-16)
+
+
+### Bug Fixes
+
+* handle unknow platforms ([f85dc7d](https://github.com/bbeesley/push-function-zips/commit/f85dc7dab2bb4d869b268c99ea17d9977a463e3b))
+
 ## [2.0.5](https://github.com/bbeesley/push-function-zips/compare/v2.0.4...v2.0.5) (2023-01-16)
 
 
