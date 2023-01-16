@@ -1,3 +1,10 @@
+## [2.0.4](https://github.com/bbeesley/push-function-zips/compare/v2.0.3...v2.0.4) (2023-01-16)
+
+
+### Bug Fixes
+
+* improve logging ([175d735](https://github.com/bbeesley/push-function-zips/commit/175d735829c4409a1d53505a33fb4390eb90b990))
+
 ## [2.0.3](https://github.com/bbeesley/push-function-zips/compare/v2.0.2...v2.0.3) (2023-01-16)
 
 
