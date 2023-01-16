@@ -1,3 +1,10 @@
+## [2.0.7](https://github.com/bbeesley/push-function-zips/compare/v2.0.6...v2.0.7) (2023-01-16)
+
+
+### Bug Fixes
+
+* platform enum should be string typed enum ([ba2ec11](https://github.com/bbeesley/push-function-zips/commit/ba2ec1122e084d1cc74629aeb25a044720598315))
+
 ## [2.0.6](https://github.com/bbeesley/push-function-zips/compare/v2.0.5...v2.0.6) (2023-01-16)
 
 
