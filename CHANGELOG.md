@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/bbeesley/push-function-zips/compare/v2.0.13...v2.1.0) (2023-01-26)
+
+
+### Features
+
+* add support for explicitly setting project id ([060e89c](https://github.com/bbeesley/push-function-zips/commit/060e89cf07e5e1f2cc2d867ec928bd919519bac6))
+
 ## [2.0.13](https://github.com/bbeesley/push-function-zips/compare/v2.0.12...v2.0.13) (2023-01-26)
 
 ## [2.0.12](https://github.com/bbeesley/push-function-zips/compare/v2.0.11...v2.0.12) (2023-01-25)
