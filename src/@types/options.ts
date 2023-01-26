@@ -64,6 +64,12 @@ export type Options = {
    */
   layerKey?: string;
   /**
+   * The name of a google project to upload to
+   *
+   * @type {string}
+   */
+  project?: string;
+  /**
    * The target we're uploading to
    *
    * @type {Platform}

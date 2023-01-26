@@ -51,6 +51,10 @@ const argv = yargs(hideBin(process.argv))
     describe:
       'Tells the module to split out the node modules into a zip that you can create a lambda layer from',
   })
+  .option('project', {
+    string: true,
+    describe: 'The name of a google project to upload to',
+  })
   .option('platform', {
     string: true,
     choices: ['AWS', 'GCP'],

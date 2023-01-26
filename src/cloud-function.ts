@@ -19,6 +19,7 @@ export async function packageAndUploadCloudFn(options: Options): Promise<void> {
     rootDir,
     bucket,
     functionKey,
+    project,
   } = options;
   if (debug) console.info('getting file list for cloud function artifact');
   const functionFiles = await getFileList(inputPath, include, exclude);
@@ -30,7 +31,7 @@ export async function packageAndUploadCloudFn(options: Options): Promise<void> {
     rootDir,
   );
   console.info('sending fn zip');
-  await storageUpload(bucket, functionKey, functionZipStream);
+  await storageUpload(bucket, functionKey, functionZipStream, project);
   console.info('sent fn zip', {
     Bucket: bucket,
     Key: `${functionKey}.zip`,
