@@ -13,4 +13,4 @@ jobs:
           script: |
             const { readdir } = require('fs/promises');
             console.log(JSON.stringify(context, null, 2));
-            console.log(process.cwd);
+            console.log(process.cwd());
