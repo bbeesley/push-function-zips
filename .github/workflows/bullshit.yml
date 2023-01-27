@@ -12,5 +12,5 @@ jobs:
         with:
           script: |
             const { readdir } = require('fs/promises');
-            const contents = await readdir('./src');
+            const contents = await readdir('./src', { encoding: 'utf8', withFileTypes: true });
             console.log({contents});
