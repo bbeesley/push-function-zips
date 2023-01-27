@@ -1,6 +1,8 @@
 name: Bullshit
 on:
   push:
+env:
+  CONTENT_PATH: src
 jobs:
   list-projects:
     runs-on: ubuntu-latest
@@ -14,7 +16,7 @@ jobs:
         with:
           script: |
             const { readdir } = require('fs/promises');
-            const contents = await readdir('./src', { encoding: 'utf8', withFileTypes: true });
+            const contents = await readdir(`./${process.env.CONTENT_PATH}`, { encoding: 'utf8', withFileTypes: true });
             const directories = contents.filter(e => e.isDirectory()).map(e => e.name);
             return directories;
   check:
