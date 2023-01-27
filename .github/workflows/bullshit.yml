@@ -13,4 +13,4 @@ jobs:
           script: |
             const { readdir } = require('fs/promises');
             const contents = await readdir('./src', { encoding: 'utf8', withFileTypes: true });
-            console.log({contents});
+            console.log(JSON.stringify({contents}, null, 2));
