@@ -14,7 +14,7 @@ jobs:
             const { readdir } = require('fs/promises');
             const contents = await readdir('./src', { encoding: 'utf8', withFileTypes: true });
             const directories = contents.filter(e => e.isDirectory()).map(e => e.name);
-            console.log({directories});
+            return directories;
   check:
     runs-on: ubuntu-latest
     needs: list-projects
