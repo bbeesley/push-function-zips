@@ -5,6 +5,8 @@ jobs:
   list-projects:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    outputs:
+      projects: ${{ steps.list.outputs.result }}
     steps:
       - uses: actions/checkout@v3
       - uses: actions/github-script@v6
