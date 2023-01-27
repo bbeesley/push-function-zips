@@ -2,7 +2,7 @@ name: Bullshit
 on:
   push:
 jobs:
-  run:
+  list-projects:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -15,3 +15,20 @@ jobs:
             const contents = await readdir('./src', { encoding: 'utf8', withFileTypes: true });
             const directories = contents.filter(e => e.isDirectory()).map(e => e.name);
             console.log({directories});
+  check:
+    runs-on: ubuntu-latest
+    needs: list-projects
+    timeout-minutes: 10
+    permissions:
+      id-token: write # This is required for requesting the JWT
+      contents: read  # This is required for actions/checkout
+      pull-requests: write
+    strategy:
+      matrix:
+        project: ${{ fromJSON(needs.list-projects.outputs.projects) }}
+        environment: [staging, production]
+    steps:
+      - name: echo
+        shell: bash
+        run: |
+          echo "project: ${{ matrix.project }}, environment: ${{ matrix.environment }}"
