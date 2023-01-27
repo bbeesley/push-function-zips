@@ -12,5 +12,5 @@ jobs:
         with:
           script: |
             const { readdir } = require('fs/promises');
-            console.log(JSON.stringify(context, null, 2));
-            console.log(process.cwd());
+            const contents = await readdir('./src');
+            console.log({contents});
