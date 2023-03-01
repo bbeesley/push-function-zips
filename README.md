@@ -68,7 +68,7 @@ await packageAndUpload({
 
 ### Options
 
-[src/@types/options.ts:11-78](https://github.com/bbeesley/push-function-zips/blob/2be94b1c6a7b44acbc95d55f1639068e4ba4ada9/src/@types/options.ts#L6-L10 "Source code on GitHub")
+[src/@types/options.ts:11-78](https://github.com/bbeesley/push-function-zips/blob/2947286d1dada8c5efa2031e6172c3da25026f31/src/@types/options.ts#L6-L10 "Source code on GitHub")
 
 Options to define an upload task
 
@@ -90,7 +90,7 @@ Type: {inputPath: [string](https://developer.mozilla.org/docs/Web/JavaScript/Ref
 
 #### inputPath
 
-[src/@types/options.ts:17-17](https://github.com/bbeesley/push-function-zips/blob/2be94b1c6a7b44acbc95d55f1639068e4ba4ada9/src/@types/options.ts#L17-L17 "Source code on GitHub")
+[src/@types/options.ts:17-17](https://github.com/bbeesley/push-function-zips/blob/2947286d1dada8c5efa2031e6172c3da25026f31/src/@types/options.ts#L17-L17 "Source code on GitHub")
 
 A pointer to where the files to upload are located
 
@@ -98,7 +98,7 @@ Type: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Globa
 
 #### include
 
-[src/@types/options.ts:23-23](https://github.com/bbeesley/push-function-zips/blob/2be94b1c6a7b44acbc95d55f1639068e4ba4ada9/src/@types/options.ts#L23-L23 "Source code on GitHub")
+[src/@types/options.ts:23-23](https://github.com/bbeesley/push-function-zips/blob/2947286d1dada8c5efa2031e6172c3da25026f31/src/@types/options.ts#L23-L23 "Source code on GitHub")
 
 An array of globs to include in the zip
 
@@ -106,7 +106,7 @@ Type: [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global
 
 #### exclude
 
-[src/@types/options.ts:29-29](https://github.com/bbeesley/push-function-zips/blob/2be94b1c6a7b44acbc95d55f1639068e4ba4ada9/src/@types/options.ts#L29-L29 "Source code on GitHub")
+[src/@types/options.ts:29-29](https://github.com/bbeesley/push-function-zips/blob/2947286d1dada8c5efa2031e6172c3da25026f31/src/@types/options.ts#L29-L29 "Source code on GitHub")
 
 An array of globs to exclude from the zip
 
@@ -114,7 +114,7 @@ Type: [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global
 
 #### createLayer
 
-[src/@types/options.ts:35-35](https://github.com/bbeesley/push-function-zips/blob/2be94b1c6a7b44acbc95d55f1639068e4ba4ada9/src/@types/options.ts#L35-L35 "Source code on GitHub")
+[src/@types/options.ts:35-35](https://github.com/bbeesley/push-function-zips/blob/2947286d1dada8c5efa2031e6172c3da25026f31/src/@types/options.ts#L35-L35 "Source code on GitHub")
 
 Whether or not to create a layer zip
 
@@ -122,7 +122,7 @@ Type: [boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Glob
 
 #### rootDir
 
-[src/@types/options.ts:41-41](https://github.com/bbeesley/push-function-zips/blob/2be94b1c6a7b44acbc95d55f1639068e4ba4ada9/src/@types/options.ts#L41-L41 "Source code on GitHub")
+[src/@types/options.ts:41-41](https://github.com/bbeesley/push-function-zips/blob/2947286d1dada8c5efa2031e6172c3da25026f31/src/@types/options.ts#L41-L41 "Source code on GitHub")
 
 A position within the zip to mount the files
 
@@ -130,7 +130,7 @@ Type: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Globa
 
 #### region
 
-[src/@types/options.ts:47-47](https://github.com/bbeesley/push-function-zips/blob/2be94b1c6a7b44acbc95d55f1639068e4ba4ada9/src/@types/options.ts#L47-L47 "Source code on GitHub")
+[src/@types/options.ts:47-47](https://github.com/bbeesley/push-function-zips/blob/2947286d1dada8c5efa2031e6172c3da25026f31/src/@types/options.ts#L47-L47 "Source code on GitHub")
 
 The AWS region to upload the assets to
 
@@ -138,7 +138,7 @@ Type: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Globa
 
 #### bucket
 
-[src/@types/options.ts:53-53](https://github.com/bbeesley/push-function-zips/blob/2be94b1c6a7b44acbc95d55f1639068e4ba4ada9/src/@types/options.ts#L53-L53 "Source code on GitHub")
+[src/@types/options.ts:53-53](https://github.com/bbeesley/push-function-zips/blob/2947286d1dada8c5efa2031e6172c3da25026f31/src/@types/options.ts#L53-L53 "Source code on GitHub")
 
 The name of the S3 bucket to upload to
 
@@ -146,7 +146,7 @@ Type: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Globa
 
 #### functionKey
 
-[src/@types/options.ts:59-59](https://github.com/bbeesley/push-function-zips/blob/2be94b1c6a7b44acbc95d55f1639068e4ba4ada9/src/@types/options.ts#L59-L59 "Source code on GitHub")
+[src/@types/options.ts:59-59](https://github.com/bbeesley/push-function-zips/blob/2947286d1dada8c5efa2031e6172c3da25026f31/src/@types/options.ts#L59-L59 "Source code on GitHub")
 
 The key name to upload the function zip as
 
@@ -154,7 +154,7 @@ Type: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Globa
 
 #### layerKey
 
-[src/@types/options.ts:65-65](https://github.com/bbeesley/push-function-zips/blob/2be94b1c6a7b44acbc95d55f1639068e4ba4ada9/src/@types/options.ts#L65-L65 "Source code on GitHub")
+[src/@types/options.ts:65-65](https://github.com/bbeesley/push-function-zips/blob/2947286d1dada8c5efa2031e6172c3da25026f31/src/@types/options.ts#L65-L65 "Source code on GitHub")
 
 The key name to upload the layer as
 
@@ -162,7 +162,7 @@ Type: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Globa
 
 #### project
 
-[src/@types/options.ts:71-71](https://github.com/bbeesley/push-function-zips/blob/2be94b1c6a7b44acbc95d55f1639068e4ba4ada9/src/@types/options.ts#L71-L71 "Source code on GitHub")
+[src/@types/options.ts:71-71](https://github.com/bbeesley/push-function-zips/blob/2947286d1dada8c5efa2031e6172c3da25026f31/src/@types/options.ts#L71-L71 "Source code on GitHub")
 
 The name of a google project to upload to
 
@@ -170,7 +170,7 @@ Type: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Globa
 
 #### platform
 
-[src/@types/options.ts:77-77](https://github.com/bbeesley/push-function-zips/blob/2be94b1c6a7b44acbc95d55f1639068e4ba4ada9/src/@types/options.ts#L77-L77 "Source code on GitHub")
+[src/@types/options.ts:77-77](https://github.com/bbeesley/push-function-zips/blob/2947286d1dada8c5efa2031e6172c3da25026f31/src/@types/options.ts#L77-L77 "Source code on GitHub")
 
 The target we're uploading to
 
@@ -178,7 +178,7 @@ Type: Platform
 
 ### packageAndUpload
 
-[src/package-and-upload.ts:15-33](https://github.com/bbeesley/push-function-zips/blob/2be94b1c6a7b44acbc95d55f1639068e4ba4ada9/src/package-and-upload.ts#L15-L33 "Source code on GitHub")
+[src/package-and-upload.ts:15-33](https://github.com/bbeesley/push-function-zips/blob/2947286d1dada8c5efa2031e6172c3da25026f31/src/package-and-upload.ts#L15-L33 "Source code on GitHub")
 
 Packages up an asset based on globs and uploads zips to storage
 
