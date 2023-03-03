@@ -1,3 +1,5 @@
+## [2.1.18](https://github.com/bbeesley/push-function-zips/compare/v2.1.17...v2.1.18) (2023-03-03)
+
 ## [2.1.17](https://github.com/bbeesley/push-function-zips/compare/v2.1.16...v2.1.17) (2023-03-02)
 
 ## [2.1.16](https://github.com/bbeesley/push-function-zips/compare/v2.1.15...v2.1.16) (2023-03-01)

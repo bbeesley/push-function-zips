@@ -1,6 +1,6 @@
 {
   "name": "@beesley/push-function-zips",
-  "version": "2.1.17",
+  "version": "2.1.18",
   "description": "Zips up and uploads build artifacts for serverless functions",
   "publishConfig": {
     "access": "public"
