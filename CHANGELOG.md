@@ -1,3 +1,10 @@
+## [2.2.1](https://github.com/bbeesley/push-function-zips/compare/v2.2.0...v2.2.1) (2023-03-08)
+
+
+### Bug Fixes
+
+* roll back to uint8arrays for aws since sdk-v3 doesnt support buffers ([55d0938](https://github.com/bbeesley/push-function-zips/commit/55d093848558249bbeb8bde53b88ac6b720f7de8))
+
 # [2.2.0](https://github.com/bbeesley/push-function-zips/compare/v2.1.18...v2.2.0) (2023-03-08)
 
 
