@@ -55,6 +55,10 @@ const argv = yargs(hideBin(process.argv))
     string: true,
     describe: 'The name of a google project to upload to',
   })
+  .option('versionSuffix', {
+    string: true,
+    describe: 'A version string to append to zip file names',
+  })
   .option('platform', {
     string: true,
     choices: ['AWS', 'GCP'],
@@ -72,8 +76,15 @@ try {
     console.info(
       `packaging ${argv.functionKey} for ${argv.buckets[ix]} in ${region} on ${argv.platform}`,
     );
+    const { functionKey, layerKey, versionSuffix } = argv;
     await packageAndUpload({
       ...argv,
+      ...(versionSuffix
+        ? { functionKey: `${functionKey}-${versionSuffix}` }
+        : {}),
+      ...(versionSuffix && layerKey
+        ? { layerKey: `${layerKey}-${versionSuffix}` }
+        : {}),
       region,
       inputPath,
       bucket: argv.buckets[ix],
