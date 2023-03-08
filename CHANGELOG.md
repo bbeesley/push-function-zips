@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/bbeesley/push-function-zips/compare/v2.1.18...v2.2.0) (2023-03-08)
+
+
+### Features
+
+* add an optional version suffix parameter to aid versioning ([7bf36d0](https://github.com/bbeesley/push-function-zips/commit/7bf36d049fdcdf4788601830d0f03ed4d9d1ec14))
+
 ## [2.1.18](https://github.com/bbeesley/push-function-zips/compare/v2.1.17...v2.1.18) (2023-03-03)
 
 ## [2.1.17](https://github.com/bbeesley/push-function-zips/compare/v2.1.16...v2.1.17) (2023-03-02)
