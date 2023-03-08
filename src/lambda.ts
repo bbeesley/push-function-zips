@@ -4,7 +4,7 @@ import type {
   OptionsNoLayer,
 } from './@types/options.js';
 import { s3Upload } from './storage/s3.js';
-import { createZip, createZipStream } from './create-zip.js';
+import { createZip } from './create-zip.js';
 import { getFileList } from './util.js';
 import { debug } from './constants.js';
 
@@ -67,7 +67,8 @@ async function packageAndUploadWithLayer(
     // 0120000 for the symlink, 0755 for the permissions : 0120755 == 41453
     unixPermissions: 0o12_0755,
   });
-  const functionZipUint8Array = functionZip.generateNodeStream({
+  const functionZipUint8Array = await functionZip.generateAsync({
+    type: 'uint8array',
     platform: 'UNIX',
     compression: 'DEFLATE',
     compressionOptions: {
@@ -88,9 +89,17 @@ async function packageAndUploadWithLayer(
   );
   console.info(`creating layer zip for ${layerKey}`);
   if (debug) console.info('creating zip from files', { layerFiles });
-  const layerZipStream = await createZipStream(inputPath, layerFiles, 'nodejs');
+  const layerZip = await createZip(inputPath, layerFiles, 'nodejs');
+  const layerZipUint8Array = await layerZip.generateAsync({
+    type: 'uint8array',
+    platform: 'UNIX',
+    compression: 'DEFLATE',
+    compressionOptions: {
+      level: 9,
+    },
+  });
   console.info('sending layer zip');
-  await s3Upload(bucket, layerKey, layerZipStream, options);
+  await s3Upload(bucket, layerKey, layerZipUint8Array, options);
   console.info('sent layer zip');
   console.info('sent layer zip', {
     Bucket: bucket,
@@ -110,13 +119,17 @@ async function packageAndUploadNoLayer(options: OptionsNoLayer): Promise<void> {
   const functionFiles = await getFileList(inputPath, include, exclude);
   console.info(`creating fn zip for ${functionKey}`);
   if (debug) console.info('creating zip from files', { functionFiles });
-  const functionZipStream = await createZipStream(
-    inputPath,
-    functionFiles,
-    rootDir,
-  );
+  const functionZip = await createZip(inputPath, functionFiles, rootDir);
+  const functionZipUint8Array = await functionZip.generateAsync({
+    type: 'uint8array',
+    platform: 'UNIX',
+    compression: 'DEFLATE',
+    compressionOptions: {
+      level: 9,
+    },
+  });
   console.info('sending fn zip');
-  await s3Upload(bucket, functionKey, functionZipStream, options);
+  await s3Upload(bucket, functionKey, functionZipUint8Array, options);
   console.info('sent fn zip', {
     Bucket: bucket,
     Key: `${functionKey}.zip`,

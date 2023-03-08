@@ -1,4 +1,3 @@
-import { Readable } from 'node:stream';
 import { PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
 import type { Options } from '../@types/options.js';
 
@@ -17,7 +16,7 @@ let s3: S3Client;
 export async function s3Upload(
   bucket: string,
   key: string,
-  content: NodeJS.ReadableStream,
+  content: Uint8Array,
   options: Options,
 ): Promise<void> {
   const { region } = options;
@@ -26,7 +25,7 @@ export async function s3Upload(
     new PutObjectCommand({
       Bucket: bucket,
       Key: `${key}.zip`,
-      Body: new Readable().wrap(content),
+      Body: content,
     }),
   );
 }
