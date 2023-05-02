@@ -141,7 +141,7 @@
     "@babel/core": "^7.21.0",
     "@babel/preset-env": "^7.20.2",
     "@babel/preset-typescript": "^7.21.0",
-    "@beesley/tsconfig": "^1.1.4",
+    "@beesley/tsconfig": "^2.0.0",
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
     "@semantic-release/changelog": "^6.0.2",
