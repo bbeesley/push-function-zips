@@ -2,7 +2,6 @@ import test from 'ava';
 import { PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
 import { mockClient } from 'aws-sdk-client-mock';
 import JSZip from 'jszip';
-
 import { packageAndUpload, Platform } from '../dist/esm/package-and-upload.js';
 
 const mockS3 = mockClient(S3Client);
